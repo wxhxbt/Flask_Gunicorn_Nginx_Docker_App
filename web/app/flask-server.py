@@ -1,7 +1,6 @@
 from flask import Flask, jsonify, request
 from flasgger import Swagger
 import os
-import time
 
 app = Flask(__name__)
 swagger = Swagger(app)
@@ -14,7 +13,8 @@ def delete_space():
 
 @app.route('/version', methods=['GET'])
 def get_metadata():
-	return jsonify({"ROUTE":os.environ['_CONDA_ROOT']})
+	# return jsonify({"ROUTE":os.environ['_CONDA_ROOT']})
+	return f"Hello {os.environ['MAINTAINER']} from Flask"
 
 # app.run(debug=True, host='0.0.0.0')
-app.run(debug=True, threaded=True)
+# app.run(debug=True, threaded=True)

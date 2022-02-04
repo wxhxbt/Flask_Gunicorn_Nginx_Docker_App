@@ -1,0 +1,8 @@
+version: '3.0'
+
+services:
+  web:
+    build: ./web
+    command: gunicorn --chdir app --bind 0.0.0.0:5000 --workers 4 flask-server:app
+    ports:
+      - 5000:5000
